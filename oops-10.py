@@ -8,3 +8,12 @@ It automatically creates __iter__() and __next__() for you.
 
 '''
 
+def tenNumber():
+    n = 0
+    while n <= 10:
+        yield n*n
+        n+=1
+value = tenNumber()
+for i in value:
+    print(i)
+
