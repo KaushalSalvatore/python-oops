@@ -10,6 +10,10 @@ key Point :
 5.Any subclass must implement all abstract methods.
 6.Useful when you want to define a contract or interface for subclasses.
 
+Abstract Class: A class that cannot be instantiated directly and is meant to be inherited by other classes.
+
+Abstract Method: A method declared but not implemented in the abstract class; child classes must implement it.
+
 '''
 
 from abc import ABC,abstractmethod
@@ -20,3 +24,26 @@ class Payment(ABC):
         pass
 
 
+class CreditPayment(Payment):
+    def Pay(self, amount):
+        return print(f"Processing credit card payment of ₹{amount}")
+
+class PaypalPayment(Payment):
+    def Pay(self, amount):
+        return print(f"Processing Paypal payment of ₹{amount}")
+    
+
+class UpiPayment(Payment):
+    def Pay(self, amount):
+        return print(f"Processing UPI payment of ₹{amount}")
+    
+def process_payment(payment_method: Payment, amount: float):
+    payment_method.Pay(amount)
+
+creadit = CreditPayment()
+paypal = PaypalPayment()
+upi = UpiPayment()
+
+process_payment(creadit, 1000)
+process_payment(paypal, 5000)
+process_payment(upi, 100)
