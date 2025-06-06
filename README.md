@@ -14,7 +14,7 @@
 - **oops-10. generator**
 - **oops-11. Abstraction**
 - **oops-12. call by object reference**
-- **oops-13. Arguments Possition,keyword,Default,variable lenght (*kwargs) (array value),kwargs (dic)**
+- **oops-13. Arguments Possition,keyword,Default,variable lenght (kwargs) (array value),kwargs (dic)**
 - **oops-14. Monkey Patching**
 - **oops-15. property**
 - **oops-16. map**
