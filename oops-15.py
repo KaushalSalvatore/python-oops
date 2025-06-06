@@ -7,16 +7,40 @@ To add validation or logic on getting/setting a variable
 To make code clean and readable
 '''
 
-class Dog():
-    def speak(self):
-        return 'woafff !!!'
+class Employee:
+    def __init__(self, name, salary):
+        self._name = name
+        self._salary = salary
 
-dog = Dog()
-print(dog.speak())
+    # Property (getter)
+    @property
+    def salary(self):
+        print("Getting salary...")
+        return self._salary
 
-def cat(self):
-    return 'Meow !!!'
+    # Setter
+    @salary.setter
+    def salary(self, value):
+        print("Setting salary...")
+        if value < 0:
+            raise ValueError("Salary can't be negative!")
+        self._salary = value
 
-Dog.speak = cat
+    # Deleter
+    @salary.deleter
+    def salary(self):
+        print("Deleting salary...")
+        del self._salary
 
-print(dog.speak())
+
+# 🔍 Usage
+emp = Employee("Kaushal", 50000)
+
+print(emp.salary)       # 👉 Calls getter
+emp.salary = 60000      # 👉 Calls setter
+print(emp.salary)
+
+del emp.salary          # 👉 Calls deleter
+
+# Accessing after delete will raise an AttributeError
+# print(emp.salary)     # ❌ Uncomment to see error
